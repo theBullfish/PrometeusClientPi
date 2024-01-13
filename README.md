@@ -40,6 +40,21 @@ Create a Systemd Service File:
 
 sudo nano /etc/systemd/system/prometheus_exporter.service
 Add the service configuration, ensuring paths are correct.
+Here's the config code:
+
+[Unit]
+Description=Prometheus Metrics Exporter
+After=network.target
+
+[Service]
+ExecStart=/home/adminbrad/PiInstallStuff/Prometheus/venv/bin/python3 /home/adminbrad/PiInstallStuff/Prometheus/metrics_exporter.py
+WorkingDirectory=/home/adminbrad/PiInstallStuff/Prometheus
+Restart=always
+User=adminbrad
+
+[Install]
+WantedBy=multi-user.target
+
 
 
 Reload and Enable the Service:
