@@ -37,7 +37,6 @@ Systemd Service Setup
 
 Create a Systemd Service File:
 
-
 sudo nano /etc/systemd/system/prometheus_exporter.service
 Add the service configuration, ensuring paths are correct.
 Here's the config code:
