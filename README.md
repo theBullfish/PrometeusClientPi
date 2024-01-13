@@ -4,36 +4,62 @@ SSH into Raspberry Pi:
 Connect to your Raspberry Pi via SSH.
 Navigate to the Project Directory:
 
+
 cd ~/PiInstallStuff/Prometheus (or the relevant directory).
+
 Create a Virtual Environment (Recommended):
 
 python3 -m venv venv
 source venv/bin/activate
+
 Create requirements.txt File:
 
-Include prometheus_client and psutil.
-Use nano requirements.txt and add the dependencies.
+Use: 
+
+nano requirements.txt 
+
+and add the dependencies.
+
+Include: 
+prometheus_client 
+psutil
+
+
 Install Dependencies:
 
 pip install -r requirements.txt
 Download the Python Script:
 
 Use wget or curl to download metrics_exporter.py from your GitHub repository.
+
 Example: wget https://raw.githubusercontent.com/theBullfish/PrometeusClientPi/main/metrics_exporter.py
 Systemd Service Setup
+
 Create a Systemd Service File:
+
 
 sudo nano /etc/systemd/system/prometheus_exporter.service
 Add the service configuration, ensuring paths are correct.
+
+
 Reload and Enable the Service:
 
 sudo systemctl daemon-reload
+
 sudo systemctl enable prometheus_exporter.service
+
+
 Start the Service and Check Status:
 
 sudo systemctl start prometheus_exporter.service
+
 sudo systemctl status prometheus_exporter.service
+
+
+
 Common Issues and Solutions
+
+
 Service Fails to Start (Path Issues):
 
 Ensure the ExecStart path in the systemd service file correctly points to the Python executable in the virtual environment and the script path.
